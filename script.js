@@ -63,3 +63,23 @@ function playRound(playerSelection, computerSelection)
         return "Invalid input";
     }
 }
+
+function playGame()
+{
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5; i++)
+    {
+        let playerSelection = prompt("Round " + (i+1) + "\n Choose Rock/Paper/Scissors");
+        let roundResult = playRound(playerSelection, getComputerChoice());
+        console.log(roundResult);
+        
+        if(roundResult.charAt(0) === "P") playerScore++;
+        else if(roundResult.charAt(0) === "C") computerScore++;
+    }
+
+    console.log("Player: " + playerScore + "\nComputer: " + computerScore);
+}
+
+playGame();
