@@ -64,47 +64,63 @@ function playRound(playerSelection, computerSelection)
     }
 }
 
-// function playGame()
-// {
-//     let playerScore = 0;
-//     let computerScore = 0;
-
-//     for (let i = 0; i < 5; i++)
-//     {
-//         let playerSelection = prompt("Round " + (i+1) + "\n Choose Rock/Paper/Scissors");
-//         let roundResult = playRound(playerSelection, getComputerChoice());
-//         console.log(roundResult);
-        
-//         if(roundResult.charAt(0) === "P") playerScore++;
-//         else if(roundResult.charAt(0) === "C") computerScore++;
-//     }
-
-//     console.log("Player: " + playerScore + "\nComputer: " + computerScore);
-// }
-
-// playGame();
-
 // Add event listeners to rock/paper/scissors buttons
 let buttons = new Array(3);
 buttons[0] = document.querySelector(".buttonRock");
 buttons[1] = document.querySelector(".buttonPaper");
 buttons[2] = document.querySelector(".buttonScissors");
 
+// Set elements and variables to show score and round results
 let resultsDiv = document.querySelector(".resultsDiv");
+let playerScore = 0;
+let computerScore = 0;
+let playerScoreSpan = document.querySelector(".playerScore");
+let computerScoreSpan = document.querySelector(".computerScore");
 
+//Click events for the 3 buttons
 buttons[0].addEventListener("click", function(){
+    // Play round & show result
     let roundResult = document.createElement("p");
     roundResult.textContent = playRound("rock", getComputerChoice());
     resultsDiv.appendChild(roundResult);  
+    // Update score ("P" player won // "C" computer won)
+    if(roundResult.textContent.charAt(0) === "P"){
+        playerScore++;
+        playerScoreSpan.textContent = playerScore;
+    }
+    else if(roundResult.textContent.charAt(0) === "C"){
+        computerScore++;
+        computerScoreSpan.textContent = computerScore;
+    }
 });
 buttons[1].addEventListener("click", function(){
+    // Play round & show result
     let roundResult = document.createElement("p");
     roundResult.textContent = playRound("paper", getComputerChoice());
-    resultsDiv.appendChild(roundResult);  
+    resultsDiv.appendChild(roundResult); 
+    // Update score ("P" player won // "C" computer won)
+    if(roundResult.textContent.charAt(0) === "P"){
+        playerScore++;
+        playerScoreSpan.textContent = playerScore;
+    }
+    else if(roundResult.textContent.charAt(0) === "C"){
+        computerScore++;
+        computerScoreSpan.textContent = computerScore;
+    }
 });
 buttons[2].addEventListener("click", function(){
+    // Play round & show result
     let roundResult = document.createElement("p");
     roundResult.textContent = playRound("scissors", getComputerChoice());
-    resultsDiv.appendChild(roundResult);  
+    resultsDiv.appendChild(roundResult); 
+    // Update score ("P" player won // "C" computer won)
+    if(roundResult.textContent.charAt(0) === "P"){
+        playerScore++;
+        playerScoreSpan.textContent = playerScore;
+    }
+    else if(roundResult.textContent.charAt(0) === "C"){
+        computerScore++;
+        computerScoreSpan.textContent = computerScore;
+    }
 });
 
