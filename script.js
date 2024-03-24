@@ -81,10 +81,13 @@ let gameComplete = false;
 
 //Click events for the 3 buttons
 buttons[0].addEventListener("click", function(){
+    if(gameComplete) return;
+
     // Play round & show result
     let roundResult = document.createElement("p");
     roundResult.textContent = playRound("rock", getComputerChoice());
     resultsDiv.appendChild(roundResult);  
+    
     // Update score ("P" player won // "C" computer won)
     if(roundResult.textContent.charAt(0) === "P"){
         playerScore++;
@@ -98,10 +101,13 @@ buttons[0].addEventListener("click", function(){
     checkWinner();
 });
 buttons[1].addEventListener("click", function(){
+    if(gameComplete) return;
+
     // Play round & show result
     let roundResult = document.createElement("p");
     roundResult.textContent = playRound("paper", getComputerChoice());
     resultsDiv.appendChild(roundResult); 
+    
     // Update score ("P" player won // "C" computer won)
     if(roundResult.textContent.charAt(0) === "P"){
         playerScore++;
@@ -115,10 +121,13 @@ buttons[1].addEventListener("click", function(){
     checkWinner();
 });
 buttons[2].addEventListener("click", function(){
+    if(gameComplete) return;
+
     // Play round & show result
     let roundResult = document.createElement("p");
     roundResult.textContent = playRound("scissors", getComputerChoice());
     resultsDiv.appendChild(roundResult); 
+    
     // Update score ("P" player won // "C" computer won)
     if(roundResult.textContent.charAt(0) === "P"){
         playerScore++;
