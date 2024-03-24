@@ -64,22 +64,38 @@ function playRound(playerSelection, computerSelection)
     }
 }
 
-function playGame()
-{
-    let playerScore = 0;
-    let computerScore = 0;
+// function playGame()
+// {
+//     let playerScore = 0;
+//     let computerScore = 0;
 
-    for (let i = 0; i < 5; i++)
-    {
-        let playerSelection = prompt("Round " + (i+1) + "\n Choose Rock/Paper/Scissors");
-        let roundResult = playRound(playerSelection, getComputerChoice());
-        console.log(roundResult);
+//     for (let i = 0; i < 5; i++)
+//     {
+//         let playerSelection = prompt("Round " + (i+1) + "\n Choose Rock/Paper/Scissors");
+//         let roundResult = playRound(playerSelection, getComputerChoice());
+//         console.log(roundResult);
         
-        if(roundResult.charAt(0) === "P") playerScore++;
-        else if(roundResult.charAt(0) === "C") computerScore++;
-    }
+//         if(roundResult.charAt(0) === "P") playerScore++;
+//         else if(roundResult.charAt(0) === "C") computerScore++;
+//     }
 
-    console.log("Player: " + playerScore + "\nComputer: " + computerScore);
-}
+//     console.log("Player: " + playerScore + "\nComputer: " + computerScore);
+// }
 
-playGame();
+// playGame();
+
+// Add event listeners to rock/paper/scissors buttons
+let buttons = new Array(3);
+buttons[0] = document.querySelector(".buttonRock");
+buttons[1] = document.querySelector(".buttonPaper");
+buttons[2] = document.querySelector(".buttonScissors");
+
+buttons[0].addEventListener("click", function(){
+    console.log(playRound("rock", getComputerChoice()));
+});
+buttons[1].addEventListener("click", function(){
+    console.log(playRound("paper", getComputerChoice()));
+});
+buttons[2].addEventListener("click", function(){
+    console.log(playRound("scissors", getComputerChoice()));
+});
