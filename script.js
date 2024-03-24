@@ -71,11 +71,13 @@ buttons[1] = document.querySelector(".buttonPaper");
 buttons[2] = document.querySelector(".buttonScissors");
 
 // Set elements and variables to show score and round results
+let scoreDiv = document.querySelector(".scoreDiv");
 let resultsDiv = document.querySelector(".resultsDiv");
 let playerScore = 0;
 let computerScore = 0;
 let playerScoreSpan = document.querySelector(".playerScore");
 let computerScoreSpan = document.querySelector(".computerScore");
+let gameComplete = false;
 
 //Click events for the 3 buttons
 buttons[0].addEventListener("click", function(){
@@ -92,6 +94,8 @@ buttons[0].addEventListener("click", function(){
         computerScore++;
         computerScoreSpan.textContent = computerScore;
     }
+    
+    checkWinner();
 });
 buttons[1].addEventListener("click", function(){
     // Play round & show result
@@ -107,6 +111,8 @@ buttons[1].addEventListener("click", function(){
         computerScore++;
         computerScoreSpan.textContent = computerScore;
     }
+
+    checkWinner();
 });
 buttons[2].addEventListener("click", function(){
     // Play round & show result
@@ -122,5 +128,21 @@ buttons[2].addEventListener("click", function(){
         computerScore++;
         computerScoreSpan.textContent = computerScore;
     }
+
+    checkWinner();
 });
 
+function checkWinner()
+{
+    if(!gameComplete)
+    {
+        if(playerScore === 5){
+            scoreDiv.textContent = "Player wins!";
+            gameComplete = true;
+        }   
+        else if(computerScore === 5){
+            scoreDiv.textContent = "Computer wins!";
+            gameComplete = true;
+        }
+    }     
+}
