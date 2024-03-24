@@ -90,12 +90,21 @@ buttons[0] = document.querySelector(".buttonRock");
 buttons[1] = document.querySelector(".buttonPaper");
 buttons[2] = document.querySelector(".buttonScissors");
 
+let resultsDiv = document.querySelector(".resultsDiv");
+
 buttons[0].addEventListener("click", function(){
-    console.log(playRound("rock", getComputerChoice()));
+    let roundResult = document.createElement("p");
+    roundResult.textContent = playRound("rock", getComputerChoice());
+    resultsDiv.appendChild(roundResult);  
 });
 buttons[1].addEventListener("click", function(){
-    console.log(playRound("paper", getComputerChoice()));
+    let roundResult = document.createElement("p");
+    roundResult.textContent = playRound("paper", getComputerChoice());
+    resultsDiv.appendChild(roundResult);  
 });
 buttons[2].addEventListener("click", function(){
-    console.log(playRound("scissors", getComputerChoice()));
+    let roundResult = document.createElement("p");
+    roundResult.textContent = playRound("scissors", getComputerChoice());
+    resultsDiv.appendChild(roundResult);  
 });
+
